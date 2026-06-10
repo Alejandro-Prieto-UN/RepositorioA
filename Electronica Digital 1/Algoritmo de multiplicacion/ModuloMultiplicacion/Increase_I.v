@@ -3,13 +3,13 @@ module Increase_I (
     input clk,
     input load,         
     input increase,     
-    output reg [15:0] IncI 
+    output reg [3:0] IncI 
 );
 
    
     always @(negedge clk) begin
         if (load) begin
-            IncI <= 16'h0000;       
+            IncI <= 4'h0;       
         end 
         else if (increase) begin
             IncI <= IncI + 1'b1;   

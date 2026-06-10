@@ -3,7 +3,7 @@ module Sum (
     input clk,
     input load,         
     input sum,          
-    input [31:0] B,
+    input [15:0] B,
     output reg [31:0] S 
 );
 

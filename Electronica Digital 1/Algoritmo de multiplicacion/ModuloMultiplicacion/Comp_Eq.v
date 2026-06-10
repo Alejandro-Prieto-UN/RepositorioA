@@ -1,11 +1,14 @@
 // Modulo que compara dos valores para saber si son iguales
 module Comp_Eq (
-    input a_i,
+    input [3:0]a_i,
     output reg a_eq_1 
 );
 
     always @(*) begin
-        a_eq_1 = (a_i == 1'b1); 
+        if (a_i == 1)
+          a_eq_1 = 1;
+        else
+        a_eq_1 = 0;
     end
 
 

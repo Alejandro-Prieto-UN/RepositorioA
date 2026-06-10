@@ -1,21 +1,25 @@
 `timescale 1ns / 1ps
 `define SIMULATION
 
-module control_mult_TB;
+module Control_Mult_TB;
 
-   input clk,
-   input rst, 
-   input a_eq_1, 
-   input i_eq_n,
-   input init,
+   reg clk;
+   reg rst; 
+   reg a_eq_1; 
+   reg i_eq_n;
+   reg init;
 
- Control_Mult u_Control_Mult (.clk(clk),.rst(rst),.a_eq_1(a_eq_1),.i_eq_n(i_eq_n),.init(init));
+   // Modulo de Unidad de Control para Multiplicador
+
+
+
+ Control_Mult uut (.clk(clk),.rst(rst),.a_eq_1(a_eq_1),.i_eq_n(i_eq_n),.init(init));
 
    parameter PERIOD          = 20;
    parameter real DUTY_CYCLE = 0.5;
    parameter OFFSET          = 0;
 
-   initial  begin  // Process for clk
+   initial  begin  
      #OFFSET;
      forever
        begin
@@ -25,44 +29,39 @@ module control_mult_TB;
        end
    end
 
-   initial begin // Reset the system, Start the image capture process
-        #20 rst = 1;
+   initial begin 
+        #0 rst = 1; init = 0; a_eq_1 = 0; i_eq_n = 0; 
         @ (posedge clk);
         @ (negedge clk);
         rst = 0;
+        @ (negedge clk);
         init = 1;
         @ (posedge clk);
         @ (negedge clk);
-        @ (posedge clk);
-        @ (negedge clk);
-        @ (posedge clk);
-        @ (negedge clk);
-        lsb_B = 1;
+        a_eq_1 = 0;
         init  = 0;
         @ (posedge clk);
         @ (negedge clk);
-        lsb_B = 0;
+        a_eq_1 = 1;
         @ (negedge clk);
         @ (posedge clk);
+        a_eq_1 = 0;
+        @ (negedge clk);
+        @ (posedge clk);
+        i_eq_n = 0;
+        @ (posedge clk);
+        @ (negedge clk);
+        @ (negedge clk);
+        @ (negedge clk);
+        i_eq_n = 1;
+        @ (negedge clk);
+        @ (negedge clk);
 
-        lsb_B = 1;
-        @ (negedge clk);
-        @ (posedge clk);
-        @ (negedge clk);
-        @ (posedge clk);
-        lsb_B = 0;
-        @ (posedge clk);
-        @ (negedge clk);
-        z = 1;
-        @ (negedge clk);
-        @ (posedge clk);
-        @ (posedge clk);
-        z = 0;                
-
+        i_eq_n = 0;           
        end
 
    initial begin: TEST_CASE
-     $dumpfile("control_mult2_TB.vcd");
+     $dumpfile("Control_Mult_TB.vcd");
      $dumpvars(-1, uut);
      #(1000) $finish;
    end

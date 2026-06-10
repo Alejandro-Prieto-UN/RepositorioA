@@ -1,5 +1,5 @@
-TARGET = Multiplex
-OBJS   = ${TARGET}.v
+TARGET = Mult
+OBJS     = $(filter-out %_TB.v, $(wildcard *.v))
 ICE40_SIM_CELLS=./lattice_sim/cells_sim_ecp5.v
 
 sim:
