@@ -23,24 +23,20 @@ module Division_TB;
  
 
    initial begin
-        // 1. Valores iniciales con Reset activo
         clk = 0;
         rst = 1;
         init = 0;
-        A = 16'd122;     // El dividendo (007A en tu GTKWave)
-        BCc = 16'd5;     // El divisor
-        #20;             // Esperamos un ciclo
+        A = 16'd122;     
+        BCc = 16'd12;    
+        #20;             
         
-        // 2. Quitamos el reset
         rst = 0;
         #20;
         
-        // 3. ¡EL CAMBIO CLAVE! Activamos el pulso de inicio
-        init = 1;        // Esto saca a la FSM de CHECK1 y la manda a LOAD
-        #20;             // Lo dejamos encendido un ciclo de reloj
-        init = 0;        // Lo apagamos para que la división corra sola
-        
-        // 4. Dejamos pasar tiempo suficiente para que termine de dividir
+        init = 1;        
+        #20;             
+        init = 0;        
+      
         #800;
         $finish;
     end

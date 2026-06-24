@@ -21,7 +21,8 @@ module Division (
     wire decrease;
     wire shift;
     wire [15:0]CA2;
-    wire [5:0]i;  
+    wire [5:0]i; 
+    assign W_Res1 = Res;
 
 
     Shift u_Shift (.clk(clk),.load(load),.arr({W_Res1,BCc}),.shift(shift),.arr_corr({W_Res2,W_BCc}));
@@ -29,7 +30,7 @@ module Division (
     Asign u_Asign_1(.arr(W_BCc),.value(res_min_a),.arr_out(BCc_out));
     Complement_A2 u_Complement_A2(.A(A),.CA2(CA2));
 
-    Sum u_Substrac(.clk(clk),.load(load),.sum(subs),.x(W_Res2),.y(CA2),.S(Res));
+    Sum u_Substrac(.clk(clk),.load(load),.sum(subs),.a(W_Res2),.b(CA2),.S(Res));
 
     Decrease u_Decrease(.clk(clk),.load(load),.decrease(decrease),.i(i));
     Comp u_Comp_2(.a(i),.b(1'b0),.igual(i_eq_zero),.menor());

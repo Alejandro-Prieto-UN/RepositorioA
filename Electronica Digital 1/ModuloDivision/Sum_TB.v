@@ -3,13 +3,14 @@
 
 module Sum_TB;
     reg clk;
-    reg load;         
-    reg sum;         
-    reg [31:0] B;
-    wire [31:0] S;
+    reg load;
+    reg [15:0]a;         
+    reg sum;          
+    reg [15:0]b;
+    wire [31:0] S; 
     
   
-    Sum uut (.clk(clk),.load(load),.sum(sum),.B(B),.S(S));
+    Sum uut (.clk(clk),.load(load),.a(a),.sum(sum),.b(b),.S(S));
     
     parameter PERIOD= 20;
     parameter real DUTY_CYCLE = 0.5;
@@ -25,28 +26,31 @@ module Sum_TB;
        end
    end
 
-    initial begin
-        load=0; 
-        sum=0; 
-        B= 32'd0;
-        #20
-        load=1; 
-        sum=0; 
-        B= 32'd10;
-        #20
-        load=0; 
-        sum=1; 
-        B= 32'd10;
-        #20
-        sum=1; 
-        B= 32'd20;
-        #20
-        sum=0; 
-        B= 32'd20;
-        #20 
-        sum=1; 
-        B= 32'd30;
-        #20
+initial begin
+
+        load = 0;
+        sum = 0;
+        a = 16'd10; 
+        b = 16'd0;
+        #20;
+
+        load = 1; 
+        sum = 0; 
+        a = 16'd10; 
+        #20;
+
+        load = 0; 
+        sum = 1; 
+        b = 16'd5; 
+        #20;
+
+        sum = 1; 
+        b = 16'd5; 
+        #20;
+      
+        sum = 0; 
+        #20;
+        
         $finish;
     end
 
