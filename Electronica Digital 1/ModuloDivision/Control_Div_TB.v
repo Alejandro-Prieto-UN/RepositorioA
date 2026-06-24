@@ -8,9 +8,9 @@ module Control_Div_TB;
     reg rst;
     reg init;
     reg i_eq_zero;
-    reg res_min_a;
+    reg reg_div_min_a;
    
-   Control_Div uut(.clk(clk),.rst(rst),.init(init),.i_eq_zero(i_eq_zero),.res_min_a(res_min_a));
+   Control_Div uut(.clk(clk),.rst(rst),.init(init),.i_eq_zero(i_eq_zero),.reg_div_min_a(reg_div_min_a));
 
    parameter PERIOD          = 20;
    parameter real DUTY_CYCLE = 0.5;

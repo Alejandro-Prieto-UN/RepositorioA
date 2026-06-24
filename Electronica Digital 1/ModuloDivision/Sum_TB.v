@@ -7,7 +7,7 @@ module Sum_TB;
     reg [15:0]a;         
     reg sum;          
     reg [15:0]b;
-    wire [31:0] S; 
+    wire [15:0] S; 
     
   
     Sum uut (.clk(clk),.load(load),.a(a),.sum(sum),.b(b),.S(S));

@@ -6,13 +6,13 @@ module Division_TB;
     reg clk;
     reg rst;        
     reg [15:0] A;     
-    reg [15:0] BCc;    
-    reg init;
+    reg [15:0] B;    
+    reg init;         
     wire [15:0] Res;
-    wire [15:0] BCc_out;    
-    wire done; 
+    wire [15:0] Cc;
+    wire done;         
   
-    Division uut (.clk(clk),.rst(rst),.A(A),.BCc(BCc),.init(init),.Res(Res),.BCc_out(BCc_out),.done(done));
+    Division uut (.clk(clk),.rst(rst),.A(A),.B(B),.init(init),.Res(Res),.Cc(Cc),.done(done));
 
     parameter PERIOD          = 20;
     parameter real DUTY_CYCLE = 0.5;
@@ -26,8 +26,8 @@ module Division_TB;
         clk = 0;
         rst = 1;
         init = 0;
-        A = 16'd122;     
-        BCc = 16'd12;    
+        A = 16'd12;     
+        B = 16'd144;    
         #20;             
         
         rst = 0;

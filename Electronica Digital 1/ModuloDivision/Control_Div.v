@@ -3,7 +3,7 @@ module Control_Div(
     input rst,
     input init,
     input i_eq_zero,
-    input res_min_a,
+    input reg_div_min_a,
     output reg load,
     output reg assi,
     output reg subs,
@@ -168,7 +168,7 @@ module Control_Div(
                 end
 
                 CHECK2: begin
-                    if (res_min_a)
+                    if (reg_div_min_a)
                         state <= ASSIGN1;
                     else
                         state <= ASSIGN2; 

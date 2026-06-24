@@ -5,7 +5,7 @@ module Sum (
     input [15:0]a,         
     input sum,          
     input [15:0]b,
-    output reg [31:0] S 
+    output reg [15:0] S 
 );
 
     

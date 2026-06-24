@@ -2,7 +2,7 @@
 `timescale 1ns / 1ps
 
 module Asign_TB;
-    reg [15:0] arr;
+    reg [31:0] arr;
     reg value;
     wire arr_out;
   
