@@ -5,9 +5,9 @@ module Comp_TB;
     reg [15:0] a;
     reg [15:0] b;
     wire igual;
-    wire mayor;
+    wire menor;
   
-    Comp uut (.a(a),.b(b),.igual(igual),.mayor(mayor));
+    Comp uut (.a(a),.b(b),.igual(igual),.menor(menor));
 
     initial begin
 

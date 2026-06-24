@@ -4,13 +4,13 @@
 
 module Control_Div_TB;
 
-   reg clk;
-   reg rst;
-   reg init;  
-   reg res_eq_1; 
-   reg i_more_n;
+    reg clk;
+    reg rst;
+    reg init;
+    reg i_eq_zero;
+    reg res_min_a;
    
-   Control_Div uut(.clk(clk),.rst(rst),.init(init),.res_eq_1(res_eq_1),.i_more_n(i_more_n));
+   Control_Div uut(.clk(clk),.rst(rst),.init(init),.i_eq_zero(i_eq_zero),.res_min_a(res_min_a));
 
    parameter PERIOD          = 20;
    parameter real DUTY_CYCLE = 0.5;
@@ -26,43 +26,24 @@ module Control_Div_TB;
        end
    end
 
-   initial begin 
-        #0 rst = 1; init = 0; res_eq_1= 0; i_more_n = 0; 
-        @ (posedge clk);
-        @ (negedge clk);
+  initial begin 
+
+        rst = 1; init = 0; i_eq_zero = 0; res_min_a = 0; 
+        #40; 
         rst = 0;
-        @ (negedge clk);
-        init = 1;
-        @ (posedge clk);
-        @ (negedge clk);
-        res_eq_1 = 0;
-        i_more_n = 0;
-        init  = 0;
-        @ (posedge clk);
-        @ (negedge clk);
-        res_eq_1 = 1;
-        i_more_n = 0;
-        @ (negedge clk);
-        @ (posedge clk);
-        res_eq_1 = 0;
-        i_more_n = 1;
-        @ (negedge clk);
-        @ (posedge clk);
-        res_eq_1 = 1;
-        i_more_n = 0;
-        @ (negedge clk);
-        @ (posedge clk);
-        res_eq_1 = 0;
-        i_more_n = 1;
-        @ (negedge clk);
-        @ (posedge clk);
-        res_eq_1 = 1;
-        i_more_n = 0;  
-        @ (negedge clk);
-        @ (posedge clk);
-        res_eq_1 = 0;
-        i_more_n = 0;        
-       end
+        #20;
+        init = 1; 
+        #20; 
+        init = 0; 
+        res_min_a = 0; 
+        i_eq_zero = 0;
+        #160;
+        res_min_a = 1; 
+        #100; 
+        i_eq_zero = 1;
+        #40;
+        $finish;
+   end
 
    initial begin: TEST_CASE
      $dumpfile("Control_Div_TB.vcd");
