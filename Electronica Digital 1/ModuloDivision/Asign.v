@@ -3,12 +3,15 @@
 module Asign (
     input [31:0] arr,
     input value,
+    input assi,
     output reg [31:0] arr_out
 );
 
     always @(*) begin
-        arr_out = arr;
-        arr_out[0]=~value; 
+        if(assi)begin
+            arr_out = arr;
+            arr_out[0]=~value; 
+        end
     end
 
 
