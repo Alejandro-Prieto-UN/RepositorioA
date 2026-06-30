@@ -9,7 +9,7 @@ module Decrease (
    
     always @(negedge clk) begin
         if (load) begin
-            i <= 4'd15;       
+            i <= 6'd16;         
         end 
         else if (decrease) begin
             i <= i - 1'b1;   

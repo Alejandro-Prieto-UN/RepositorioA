@@ -1,5 +1,5 @@
 $date
-	Thu Jun 25 11:58:11 2026
+	Tue Jun 30 08:10:09 2026
 $end
 $version
 	Icarus Verilog
@@ -24,29 +24,24 @@ $var wire 1 , done $end
 $var wire 1 - decrease $end
 $var wire 1 . assi $end
 $var wire 16 / Res [15:0] $end
-$var wire 32 0 Reg_Div [31:0] $end
-$var wire 16 1 Cc [15:0] $end
-$var wire 16 2 CA2 [15:0] $end
-$scope module u_Asign_1 $end
-$var wire 1 ( value $end
-$var wire 32 3 arr [31:0] $end
-$var reg 32 4 arr_out [31:0] $end
-$upscope $end
+$var wire 16 0 Cc [15:0] $end
+$var wire 16 1 CA2 [15:0] $end
+$var reg 32 2 Reg_Div [31:0] $end
 $scope module u_Comp_1 $end
-$var wire 16 5 a [15:0] $end
-$var wire 16 6 b [15:0] $end
-$var reg 1 7 igual $end
+$var wire 16 3 a [15:0] $end
+$var wire 16 4 b [15:0] $end
+$var reg 1 5 igual $end
 $var reg 1 ( menor $end
 $upscope $end
 $scope module u_Comp_2 $end
-$var wire 16 8 a [15:0] $end
-$var wire 16 9 b [15:0] $end
+$var wire 16 6 a [15:0] $end
+$var wire 16 7 b [15:0] $end
 $var reg 1 * igual $end
-$var reg 1 : menor $end
+$var reg 1 8 menor $end
 $upscope $end
 $scope module u_Complement_A2 $end
-$var wire 16 ; A [15:0] $end
-$var reg 16 < CA2 [15:0] $end
+$var wire 16 9 A [15:0] $end
+$var reg 16 : CA2 [15:0] $end
 $upscope $end
 $scope module u_Control_Div $end
 $var wire 1 # clk $end
@@ -54,93 +49,71 @@ $var wire 1 * i_eq_zero $end
 $var wire 1 $ init $end
 $var wire 1 ( reg_div_min_a $end
 $var wire 1 % rst $end
-$var parameter 4 = ASSIGN1 $end
-$var parameter 4 > ASSIGN2 $end
-$var parameter 4 ? CHECK1 $end
-$var parameter 4 @ CHECK2 $end
-$var parameter 4 A CHECK3 $end
-$var parameter 4 B DECREASE $end
-$var parameter 4 C FINISH $end
-$var parameter 4 D LOAD $end
-$var parameter 4 E SHIFT $end
-$var parameter 4 F START $end
-$var parameter 4 G SUBS $end
+$var parameter 4 ; ASSIGN1 $end
+$var parameter 4 < ASSIGN2 $end
+$var parameter 4 = CHECK1 $end
+$var parameter 4 > CHECK2 $end
+$var parameter 4 ? CHECK3 $end
+$var parameter 4 @ DECREASE $end
+$var parameter 4 A FINISH $end
+$var parameter 4 B LOAD $end
+$var parameter 4 C SHIFT $end
+$var parameter 4 D START $end
+$var parameter 4 E SUBS $end
 $var reg 1 . assi $end
 $var reg 1 - decrease $end
 $var reg 1 , done $end
 $var reg 1 ) load $end
 $var reg 1 ' shift $end
-$var reg 4 H state [3:0] $end
+$var reg 4 F state [3:0] $end
 $var reg 1 & subs $end
 $upscope $end
 $scope module u_Decrease $end
 $var wire 1 # clk $end
 $var wire 1 - decrease $end
 $var wire 1 ) load $end
-$var reg 6 I i [5:0] $end
-$upscope $end
-$scope module u_Shift $end
-$var wire 32 J arr [31:0] $end
-$var wire 1 # clk $end
-$var wire 1 ) load $end
-$var wire 1 ' shift $end
-$var reg 32 K arr_corr [31:0] $end
-$upscope $end
-$scope module u_Substrac $end
-$var wire 16 L a [15:0] $end
-$var wire 16 M b [15:0] $end
-$var wire 1 # clk $end
-$var wire 1 ) load $end
-$var wire 1 & sum $end
-$var reg 16 N S [15:0] $end
+$var reg 6 G i [5:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b111 G
-b0 F
-b11 E
-b10 D
-b1010 C
-b1000 B
-b1001 A
-b100 @
-b1 ?
-b110 >
-b101 =
+b111 E
+b0 D
+b11 C
+b10 B
+b1010 A
+b1000 @
+b1001 ?
+b100 >
+b1 =
+b110 <
+b101 ;
 $end
 #0
 $dumpvars
-bx N
-b1111111111110100 M
-bx L
-bx K
-b10010000 J
-bx I
-bx H
-b1111111111110100 <
-b1100 ;
-x:
-b0 9
-b0xxxxxx 8
-x7
-b1100 6
-bx 5
-bx 4
-bx 3
-b1111111111110100 2
-bx 1
-bx 0
-bx /
+bx G
+bx F
+b1111111111110100 :
+b1100 9
+x8
+b0 7
+b0xxxxxx 6
+05
+b1100 4
+b0 3
+b0 2
+b1111111111110100 1
+b0 0
+b0 /
 x.
 x-
 x,
 bx +
 x*
 x)
-x(
+1(
 x'
 x&
 1%
@@ -156,7 +129,7 @@ $end
 0-
 0'
 0)
-b0 H
+b0 F
 1#
 #20000
 0#
@@ -168,7 +141,7 @@ b0 H
 0#
 1$
 #50000
-b1 H
+b1 F
 0$
 1#
 #60000
@@ -180,319 +153,288 @@ b1 H
 0#
 #90000
 1)
-b10 H
+b10 F
 1#
 #100000
-1(
-07
-b10010000 1
-0:
+08
 0*
-b0 L
-b0 5
-b10010000 4
-b1111 8
-b1111 +
-b1111 I
 b10010000 0
-b10010000 3
-b10010000 K
+b10000 6
+b10000 +
+b10000 G
+b10010000 2
 0#
 #110000
 1'
 0)
-b11 H
+b11 F
 0$
 1#
 #120000
-b100100000 1
-b100100000 4
 b100100000 0
-b100100000 3
-b100100000 K
+b100100000 2
 0#
 #130000
 0'
-b100 H
+b100 F
 1#
 #140000
 0#
 #150000
 1.
-b101 H
+b101 F
 1#
 #160000
 0#
 #170000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #180000
-b1110 8
-b1110 +
-b1110 I
+b1111 6
+b1111 +
+b1111 G
 0#
 #190000
 0-
-b1001 H
+b1001 F
 1#
 #200000
 0#
 #210000
 1'
-b11 H
+b11 F
 1#
 #220000
-b1001000000 1
-b1001000000 4
 b1001000000 0
-b1001000000 3
-b1001000000 K
+b1001000000 2
 0#
 #230000
 0'
-b100 H
+b100 F
 1#
 #240000
 0#
 #250000
 1.
-b101 H
+b101 F
 1#
 #260000
 0#
 #270000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #280000
-b1101 8
-b1101 +
-b1101 I
+b1110 6
+b1110 +
+b1110 G
 0#
 #290000
 0-
-b1001 H
+b1001 F
 1#
 #300000
 0#
 #310000
 1'
-b11 H
+b11 F
 1#
 #320000
-b10010000000 1
-b10010000000 4
 b10010000000 0
-b10010000000 3
-b10010000000 K
+b10010000000 2
 0#
 #330000
 0'
-b100 H
+b100 F
 1#
 #340000
 0#
 #350000
 1.
-b101 H
+b101 F
 1#
 #360000
 0#
 #370000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #380000
-b1100 8
-b1100 +
-b1100 I
+b1101 6
+b1101 +
+b1101 G
 0#
 #390000
 0-
-b1001 H
+b1001 F
 1#
 #400000
 0#
 #410000
 1'
-b11 H
+b11 F
 1#
 #420000
-b100100000000 1
-b100100000000 4
 b100100000000 0
-b100100000000 3
-b100100000000 K
+b100100000000 2
 0#
 #430000
 0'
-b100 H
+b100 F
 1#
 #440000
 0#
 #450000
 1.
-b101 H
+b101 F
 1#
 #460000
 0#
 #470000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #480000
-b1011 8
-b1011 +
-b1011 I
+b1100 6
+b1100 +
+b1100 G
 0#
 #490000
 0-
-b1001 H
+b1001 F
 1#
 #500000
 0#
 #510000
 1'
-b11 H
+b11 F
 1#
 #520000
-b1001000000000 1
-b1001000000000 4
 b1001000000000 0
-b1001000000000 3
-b1001000000000 K
+b1001000000000 2
 0#
 #530000
 0'
-b100 H
+b100 F
 1#
 #540000
 0#
 #550000
 1.
-b101 H
+b101 F
 1#
 #560000
 0#
 #570000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #580000
-b1010 8
-b1010 +
-b1010 I
+b1011 6
+b1011 +
+b1011 G
 0#
 #590000
 0-
-b1001 H
+b1001 F
 1#
 #600000
 0#
 #610000
 1'
-b11 H
+b11 F
 1#
 #620000
-b10010000000000 1
-b10010000000000 4
 b10010000000000 0
-b10010000000000 3
-b10010000000000 K
+b10010000000000 2
 0#
 #630000
 0'
-b100 H
+b100 F
 1#
 #640000
 0#
 #650000
 1.
-b101 H
+b101 F
 1#
 #660000
 0#
 #670000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #680000
-b1001 8
-b1001 +
-b1001 I
+b1010 6
+b1010 +
+b1010 G
 0#
 #690000
 0-
-b1001 H
+b1001 F
 1#
 #700000
 0#
 #710000
 1'
-b11 H
+b11 F
 1#
 #720000
-b100100000000000 1
-b100100000000000 4
 b100100000000000 0
-b100100000000000 3
-b100100000000000 K
+b100100000000000 2
 0#
 #730000
 0'
-b100 H
+b100 F
 1#
 #740000
 0#
 #750000
 1.
-b101 H
+b101 F
 1#
 #760000
 0#
 #770000
 0.
 1-
-b1000 H
+b1000 F
 1#
 #780000
-b1000 8
-b1000 +
-b1000 I
+b1001 6
+b1001 +
+b1001 G
 0#
 #790000
 0-
-b1001 H
+b1001 F
 1#
 #800000
 0#
 #810000
 1'
-b11 H
+b11 F
 1#
 #820000
-b1001000000000000 1
-b1001000000000000 4
 b1001000000000000 0
-b1001000000000000 3
-b1001000000000000 K
+b1001000000000000 2
 0#
 #830000
 0'
-b100 H
+b100 F
 1#
 #840000
 0#
 #850000
 1.
-b101 H
+b101 F
 1#
 #860000
 0#
