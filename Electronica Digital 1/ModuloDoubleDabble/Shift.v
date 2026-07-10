@@ -1,19 +1,15 @@
-// Registro de desplazamiento + correccion BCD
-// Contiene {a3, a2, a1, A} en un solo registro interno de 22 bits.
-// "load" carga A; "shift" desplaza todo 1 bit; "add" aplica la
-// correccion +3 a los 3 digitos EN PARALELO (cada uno controlado
-// por su propio bit de "update", que viene de los 3 Comp externos).
+// Modulo que hace el corriemiento a la izquierda y la suma 
 module Shift(
     input clk,
     input load,
     input shift,
     input sum,
-    input [2:0] update,        // update[2]->a3, update[1]->a2, update[0]->a1
+    input [2:0] update,        
     input [9:0] A,
-    input [11:0] in_bcd,        // {a3,a2,a1} ya corregidos (+3)
-    output [11:0] arr_corr       // {a3,a2,a1} actuales
+    input [11:0] in_bcd,        
+    output [11:0] arr_corr      
 );
-    reg [21:0] alldata;          // {a3(4), a2(4), a1(4), A(10)}
+    reg [21:0] alldata;         
     assign arr_corr = alldata[21:10];
 
     always @(posedge clk) begin

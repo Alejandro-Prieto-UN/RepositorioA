@@ -76,7 +76,7 @@ module Control_DoubleDabble(
                 load  = 0;
                 shift = 1;
                 sum   = 0;
-                increase   = 1;    // desplaza y decrementa el contador juntos
+                increase   = 1;    
                 done  = 0;
             end
 
@@ -91,7 +91,7 @@ module Control_DoubleDabble(
             SUM: begin
                 load  = 0;
                 shift = 0;
-                sum   = 1;    // corrige a1,a2,a3 EN PARALELO
+                sum   = 1;   
                 increase   = 0;
                 done  = 0;
             end

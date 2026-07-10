@@ -1,4 +1,4 @@
-// Modulo de incremento I
+// Modulo del decremento de i 
 module Decrease (
     input clk,
     input load,         
@@ -17,4 +17,3 @@ module Decrease (
     end
 
 endmodule
-            

@@ -1,0 +1,11 @@
+[33m947777b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: rebase (abort): returning to refs/heads/main
+[33mfd7e046[m HEAD@{1}: pull origin main (start): checkout fd7e046e35ce0f87d04f1f1af49fd587350e33c2
+[33m947777b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: rebase (abort): returning to refs/heads/main
+[33m53d42ea[m HEAD@{3}: commit: Añado los algortimos faltantes
+[33m620fb32[m HEAD@{4}: pull origin main --rebase (start): checkout 620fb32e1fa266fc89cf11ede1530e8a4d00abd2
+[33m947777b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{5}: rebase (abort): returning to refs/heads/main
+[33m2287b4f[m HEAD@{6}: pull origin main --rebase (pick): Nuevos cambios
+[33m2cce6e8[m HEAD@{7}: pull origin main --rebase (start): checkout 2cce6e827a130dbf2899a95c063aa0d8554b2f28
+[33m947777b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{8}: commit: Guardando todos los algoritmos pendientes
+[33m52af04d[m HEAD@{9}: commit: Nuevos cambios
+[33m5c3a94c[m HEAD@{10}: clone: from https://github.com/Alejandro-Prieto-UN/RepositorioA.git

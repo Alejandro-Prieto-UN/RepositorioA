@@ -1,6 +1,4 @@
-// Modulo top del algoritmo DoubleDabble (version corregida: a1, a2 y a3
-// se corrigen EN PARALELO en un solo estado ADD, en vez de turnarse en
-// tres estados separados como en la version original)
+// Modulo de top del algortimo Double Dabble (Binario a BCD)
 module DoubleDabble (
     input clk,
     input rst,
@@ -17,29 +15,25 @@ module DoubleDabble (
     wire sum;
     wire increase;
     wire i_eq_n;
-    wire [11:0] bcd_reg;    // {a3, a2, a1} actuales
-    wire [11:0] bcd_add;    // {a3, a2, a1} ya corregidos (+3)
-    wire m_a1, m_a2, m_a3;  // 1 si el digito correspondiente es >= 5
+    wire [11:0] bcd_reg;    
+    wire [11:0] bcd_add;    
+    wire m_a1, m_a2, m_a3;  
 
-    Shift u_Shift (.clk(clk), .load(load), .shift(shift), .sum(sum),
-                   .update({m_a3, m_a2, m_a1}), .A(A), .in_bcd(bcd_add),
-                   .arr_corr(bcd_reg));
+    Shift u_Shift (.clk(clk), .load(load), .shift(shift),.sum(sum),.update({m_a3, m_a2, m_a1}),.A(A),.in_bcd(bcd_add),.arr_corr(bcd_reg));
 
-    Comp u_Comp_a1 (.a(bcd_reg[3:0]),   .mayor(m_a1));
-    Comp u_Comp_a2 (.a(bcd_reg[7:4]),   .mayor(m_a2));
-    Comp u_Comp_a3 (.a(bcd_reg[11:8]),  .mayor(m_a3));
+    Comp u_Comp_a1 (.a(bcd_reg[3:0]),.mayor(m_a1));
+    Comp u_Comp_a2 (.a(bcd_reg[7:4]),.mayor(m_a2));
+    Comp u_Comp_a3 (.a(bcd_reg[11:8]),.mayor(m_a3));
 
-    Sum u_Sum_a1 (.a(bcd_reg[3:0]),  .S(bcd_add[3:0]));
-    Sum u_Sum_a2 (.a(bcd_reg[7:4]),  .S(bcd_add[7:4]));
-    Sum u_Sum_a3 (.a(bcd_reg[11:8]), .S(bcd_add[11:8]));
+    Sum u_Sum_a1 (.a(bcd_reg[3:0]),.S(bcd_add[3:0]));
+    Sum u_Sum_a2 (.a(bcd_reg[7:4]),.S(bcd_add[7:4]));
+    Sum u_Sum_a3 (.a(bcd_reg[11:8]),.S(bcd_add[11:8]));
 
-    Increase u_Increase (.clk(clk), .load(load), .increase(increase), .i_eq_n(i_eq_n));
+    Increase u_Increase (.clk(clk),.load(load),.increase(increase),.i_eq_n(i_eq_n));
 
-    Control_DoubleDabble u_Control_DoubleDabble (.clk(clk), .rst(rst), .init(init),
-                          .i_eq_n(i_eq_n), .load(load), .shift(shift), .sum(sum),
-                          .increase(increase), .done(done));
+    Control_DoubleDabble u_Control_DoubleDabble (.clk(clk),.rst(rst),.init(init),.i_eq_n(i_eq_n),.load(load),.shift(shift), 
+    .sum(sum),.increase(increase), .done(done));
 
-    assign A = 
     assign a1 = bcd_reg[3:0];
     assign a2 = bcd_reg[7:4];
     assign a3 = bcd_reg[11:8];

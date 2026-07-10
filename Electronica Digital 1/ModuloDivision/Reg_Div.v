@@ -1,4 +1,6 @@
-
+/*Modulo que controla el registro de division hace el corrimiento , suma el complemento A2 (resta)
+ y asigna un bit*/ 
+ 
 module Reg_Div (
     input clk,
     input rst,

@@ -1,7 +1,4 @@
-// Modulo de correccion: suma 3 a un digito BCD
-// (antes mezclaba la comparacion y la suma en un solo modulo con
-//  puertos de 16/32 bits que no correspondian al ancho real de un digito;
-//  ahora solo suma, y Comp.v decide si aplicar el resultado)
+// Modulo que recibe un valor y le suma 3 en decimal
 module Sum (
     input  [3:0] a,
     output [3:0] S

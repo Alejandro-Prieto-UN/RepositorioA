@@ -1,4 +1,4 @@
-// Modulo de prueba del algoritmo double dabble inverso (BCD -> Binario)
+// Modulo de prueba del algortimo Double Dabble inverso (BCD a binario)
 `timescale 1ns / 1ps
 
 module DoubleDabble_Inverso_TB;
@@ -6,12 +6,11 @@ module DoubleDabble_Inverso_TB;
     reg clk;
     reg rst;
     reg init;
-    reg [3:0] a1, a2, a3;   // ahora son ENTRADA: los digitos BCD
-    wire [9:0] A;           // ahora es SALIDA: el binario resultante
+    reg [3:0] a1, a2, a3;   
+    wire [9:0] A;           
     wire done;
 
-    DoubleDabble_Inverso uut (.clk(clk), .rst(rst), .init(init),
-                              .a1(a1), .a2(a2), .a3(a3), .A(A), .done(done));
+    DoubleDabble_Inverso uut (.clk(clk),.rst(rst),.init(init),.a1(a1),.a2(a2),.a3(a3),.A(A),.done(done));
 
     parameter PERIOD = 20;
     reg [20:0] i;

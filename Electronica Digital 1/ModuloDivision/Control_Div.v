@@ -1,3 +1,4 @@
+// Modulo de control del algoritmo de division
 module Control_Div(
     input clk,
     input rst,

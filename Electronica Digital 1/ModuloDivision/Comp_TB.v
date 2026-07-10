@@ -1,4 +1,4 @@
-// Modulo de prueba comparador igual a 1
+// Modulo de prueba del comparador 
 `timescale 1ns / 1ps
 
 module Comp_TB;

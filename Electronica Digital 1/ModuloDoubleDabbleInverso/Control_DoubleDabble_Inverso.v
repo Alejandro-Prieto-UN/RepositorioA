@@ -6,7 +6,7 @@ module Control_DoubleDabble_Inverso(
     input clk,
     input rst,
     input init,
-    input Zero,          // desde Increase.v (contador en 0)
+    input i_eq_n,          
     output reg load,
     output reg shift,
     output reg subs,

@@ -1,3 +1,4 @@
+// Modulo de prueba del algoritmo de Division
 `timescale 1ns / 1ps
 
 module Division_TB;
@@ -15,7 +16,6 @@ module Division_TB;
 
     parameter PERIOD = 20;
 
-j
     initial begin
         clk = 0;
         forever #(PERIOD/2) clk = ~clk;
@@ -25,7 +25,7 @@ j
 
         rst = 1;
         A = 16'd12;
-        B = 16'd144;
+        B = 16'd122;
         init = 0;
         
         #(PERIOD*2);        
