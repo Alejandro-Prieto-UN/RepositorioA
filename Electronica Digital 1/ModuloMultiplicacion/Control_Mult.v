@@ -17,7 +17,7 @@ module Control_Mult (
     parameter LOAD       = 4'b0010;
     parameter CHECK2     = 4'b0011;   
     parameter SUM        = 4'b0100;
-    parameter INCREASE_I = 4'b0101;
+    parameter INCREASE   = 4'b0101;
     parameter CHECK3     = 4'b0110;
     parameter SHIFT      = 4'b1000;
     parameter FINISH     = 4'b1001;
@@ -67,7 +67,7 @@ module Control_Mult (
                 done       = 0; 
             end
 
-            INCREASE_I: begin
+            INCREASE: begin
                 load       = 0;
                 sum        = 0;
                 increase = 1;
@@ -100,9 +100,9 @@ module Control_Mult (
             end
             
             default: begin
-                 load       = 0;
+                load       = 0;
                 sum        = 0;
-                increase = 0;
+                increase   = 0;
                 shift      = 0;
                 done       = 0;                
             end
@@ -135,14 +135,14 @@ module Control_Mult (
                     if (a_eq_1)
                         state <= SUM;
                     else
-                        state <= INCREASE_I; 
+                        state <= INCREASE; 
                 end
 
                 SUM: begin
-                    state <= INCREASE_I; 
+                    state <= INCREASE; 
                 end
 
-                INCREASE_I: begin
+                INCREASE: begin
                     state <= CHECK3; 
                 end
               

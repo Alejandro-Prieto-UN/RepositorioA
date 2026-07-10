@@ -15,11 +15,8 @@ module Mult (
     wire sum;
     wire increase;
     wire shift;
-    wire reset;
     wire [15:0] B_corr; 
-    wire [3:0]  i; 
-    wire A_i;    
-    wire [3:0]  IncI;   
+    wire [3:0] Inc;   
 
 
 
@@ -28,13 +25,13 @@ module Mult (
     Sum u_Sum (.clk(clk),.load (load),.sum(sum),.B(B_corr),.S(S));
 
 
-    Increase_I u_Increase_I (.clk(clk),.load(load),.increase(increase),.IncI(IncI));
+    Increase u_Increase (.clk(clk),.load(load),.increase(increase),.Inc(Inc));
 
     
-    Multiplex u_Multiplex (.i(i),.A(A),.A_i(a_eq_1));
+    Multiplex u_Multiplex (.i(Inc),.A(A),.A_i(a_eq_1));
 
     
-    Comp_Eq u_Comp_Eq (.a_i(IncI),.a_eq_1(i_eq_n));
+    Comp_Eq u_Comp_Eq (.i(Inc),.i_eq_n(i_eq_n));
 
    
     Control_Mult u_Control_Mult (.clk(clk),.rst(rst),.a_eq_1(a_eq_1),.i_eq_n(i_eq_n),.init(init)

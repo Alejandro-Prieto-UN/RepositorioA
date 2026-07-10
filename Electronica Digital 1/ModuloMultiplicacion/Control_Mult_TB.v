@@ -8,12 +8,9 @@ module Control_Mult_TB;
    reg a_eq_1; 
    reg i_eq_n;
    reg init;
-
-   // Modulo de Unidad de Control para Multiplicador
-
-
-
- Control_Mult uut (.clk(clk),.rst(rst),.a_eq_1(a_eq_1),.i_eq_n(i_eq_n),.init(init));
+   
+   
+   Control_Mult uut (.clk(clk),.rst(rst),.a_eq_1(a_eq_1),.i_eq_n(i_eq_n),.init(init));
 
    parameter PERIOD          = 20;
    parameter real DUTY_CYCLE = 0.5;

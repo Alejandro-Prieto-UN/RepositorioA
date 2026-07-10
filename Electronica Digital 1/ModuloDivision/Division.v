@@ -1,53 +1,48 @@
-// Modulo de division
 module Division ( 
     input clk,
     input rst,        
     input [15:0] A,     
-    input [15:0] B,    
+    input [15:0] B,     
     input init,         
-    output [15:0] Res,
-    output [15:0]  Cc,
-    output done        
+    output [15:0] Res, 
+    output [15:0] Cc,   
+    output done         
 );
 
-    wire res_eq_1;
-    wire i_more_n; 
+    wire i_eq_zero;
+    wire reg_div_min_a;
     wire load;
     wire assi;
-    wire sum;
-    wire increase;
+    wire subs;
+    wire decrease;
     wire shift;
-    wire reset;
-    wire [15:0] Res_corr;
-    wire [15:0] Res_out;
-    wire [5:0]  i; 
-    wire B_i;
-    wire [15:0]CA2;  
-    wire Cc_i;
-    wire Cc_out;
+    wire [15:0] CA2;
+    wire [31:0] Reg_Div;
+    wire [5:0]  i;
 
-    Asign u_Asign_1(.arr(Res),.i(0),.bit(B[15]),.arr_out(Res_out_1));
-    Complement_A2 u_Complement_A2(.A(A),.CA2(CA2));
-    Sum u_Sum_1(.clk(clk),.load(load),.sum(sum),.x(Res_out_1),.y(CA),.S(Res_out_2));
-    Comp u_Comp_1(.a(Res[15]),.b(1'b1),.igual(res_eq_1),.mayor());
+    Comp u_Comp_1(.a(Reg_Div[31:16]), .b(A), .igual(), .menor(reg_div_min_a));
 
-    Asign u_Asign_2(.arr(Cc),.i(15-i),.bit(B[15]),.arr_out());
-    Sum u_Sum_2(.clk(clk),.load(load),.sum(sum),.x(Res_out_2),.y(A),.S(Res_out_3));
+    Complement_A2 u_Complement_A2(.A(A), .CA2(CA2));
 
-    Asign u_Asign_3(.arr(Cc),.i(15-i),.bit(res_eq_1),.arr_out(Cc_out));
-    Increase_I u_Increase_I(.clk(clk),.load(load),.increase(increase),.i(i));
-    Comp u_Comp_2(.a(i),.b(5'd16),.igual(),.mayor(i_more_n));
-    
-    
-    Shift_Left u_Shift_Left(.clk(clk),.load(load),.arr(Res),.shift(shift),.arr_corr(Res_corr));
-    
-    Multiplex u_Multiplex_B(.i(i),.arr(B),.arr_i(B_i));
-    Multiplex u_Multiplex_CC(.i(i),.arr(Cc),.arr_i(Cc_i));
-  
-    Asign u_Asign_4(.arr(Cc),.i(i),.bit(res_eq_1),.arr_out(Cc_out));
+    Decrease u_Decrease(.clk(clk), .load(load), .decrease(decrease), .i(i));
 
-    Control_Div u_Control_Div(.clk(clk),.rst(rst),.init(init),.res_eq_1(res_eq_1),
-    .i_more_n(i_more_n),.load(load),.assi(assi),.sum(sum),.increase(increase),.shift(shift),
-    .done(done));
+    Comp u_Comp_2(.a(i), .b(16'd0), .igual(i_eq_zero), .menor());
+
+    Reg_Div u_Reg_Div(
+        .clk(clk), .rst(rst),
+        .load(load), .shift(shift), .subs(subs), .assi(assi),
+        .B(B), .CA2(CA2), .min_a(reg_div_min_a),
+        .Q(Reg_Div)
+    );
+
+    Control_Div u_Control_Div(
+        .clk(clk), .rst(rst), .init(init),
+        .i_eq_zero(i_eq_zero), .reg_div_min_a(reg_div_min_a),
+        .load(load), .assi(assi), .subs(subs),
+        .decrease(decrease), .shift(shift), .done(done)
+    );
+
+    assign Res = Reg_Div[31:16];
+    assign Cc  = Reg_Div[15:0];
 
 endmodule

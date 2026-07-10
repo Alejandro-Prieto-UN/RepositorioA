@@ -17,8 +17,8 @@ module Mult_TB;
     parameter real DUTY_CYCLE = 0.5;
     parameter OFFSET          = 0;
     reg [20:0] i;
-	event reset_trigger;
-	event reset_done_trigger;
+    event reset_trigger;
+    event reset_done_trigger;
  
 
     initial begin  

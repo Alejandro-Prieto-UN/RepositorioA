@@ -1,61 +1,41 @@
-//Modulo de raiz cuadrada 
-
 module Raiz_Cuadrada (
     input clk,
     input rst,        
     input [15:0] A,         
     input init,         
-    output [15:0] Rf,    
+    output [13:0] Rf,    
     output done   
-    
 );
+
+    wire resp_eq_op;
+    wire resp_gt_op;
     wire resp_more_eq_op;
-    wire resp_more_eq_rf;
-    wire i_more_eq_n;
-    wire a_eq_1;
+    wire i_eq_zero;
     wire load;
-    wire shift;
-    wire sum;
+    wire shift;      // corre solo Reg_RA (2 bits por iteracion)
     wire subs;
     wire assi;
-    wire increase_i;
-    wire IncI;
-    wire Resp;
-    wire Resp_corr;
-    wire Resp1;
-    wire Resp0;
-    wire Rf;
-    wire Rf_corr;
-    wire Rf_corr1;
-    wire Op;
-    wire Op_out;
-    wire A_i;
+    wire root_bit;
+    wire decrease;
+    wire [5:0]  i;
+    wire [31:0] RA;
+    wire [15:0] Op = {Rf, 2'b01};   // usa el Rf tal como quedo en la iteracion anterior
 
-    Shift_Left u_Shift_Left_1(.clk(clk),.load(load),.B(Resp),.shift(shift),.B_corr(Resp_corr));
-    Shift_Left u_Shift_Left_2(.clk(clk),.load(load),.B(Rf),.shift(shift),.B_corr(Rf_corr));
-    Increase_I u_Increase_I(.clk(clk),.load(load),.increase(increase),.IncI(IncI));
-    Sum u_Sum(.clk(clk),.load (load),.sum(sum),.B(Rf_corr),.S(Rf_corr1));
-    Comp u_Comp_I_N(.a(),.b(),.igual(),.mayor(i_more_eq_n));
-    Comp u_Comp_Resp_Rf(.a(Resp),.b(Rf),.igual(),.mayor(resp_more_eq_rf));
-    Comp u_Comp_Resp_Op(.a(Resp),.b(Op),.igual(),.mayor(resp_more_eq_op));
-    Comp u_Comp_A_1(.a(A_i),.b(1'b1),.igual(),.mayor(a_eq_1));
-    Asign u_Asign_Op(.ar(Op),.i(1'b0),.bit(1'b0),.ar_out(Op_out));
-    Asign u_Asign_Rf(.ar(Rf),.i(1'b0),.bit(1'b1),.ar_out(Op_out));
-    Asign u_Asign_Resp1(.ar(Rf),.i(1'b1),.bit(A_i),.ar_out(Resp1));
-    Asign u_Asign_Resp0(.ar(Rf),.i(1'b0),.bit(A_i),.ar_out(Resp0));
-    Substrac u_Substrac_Op(.clk(clk),.load(load),.subs(subs),.B1(Resp),.B2(Op),.Subs());
-    Substrac u_Substrac_Rf(.clk(clk),.load(load),.subs(subs),.B1(Resp),.B2(Rf),.Subs());
+    Comp u_Comp_1(.a(RA[31:16]), .b(Op), .igual(resp_eq_op), .mayor(resp_gt_op));
+    assign resp_more_eq_op = resp_eq_op | resp_gt_op;   // Resp >= Op
 
+    Comp u_Comp_2(.a(i), .b(16'd0), .igual(i_eq_zero), .mayor());
 
+    Decrease u_Decrease(.clk(clk), .load(load), .decrease(decrease), .i(i));
 
+    Reg_RA u_Reg_RA(.clk(clk), .rst(rst), .load(load), .shift(shift), .subs(subs), .A(A), .Op(Op), .RA(RA));
 
+    Reg_Rf u_Reg_Rf(.clk(clk), .rst(rst), .load(load), .assi(assi), .value(root_bit), .Rf(Rf));
 
+    Control_RaizCuadrada u_Control_RaizCuadrada (
+        .clk(clk), .rst(rst), .i_eq_zero(i_eq_zero), .resp_more_eq_op(resp_more_eq_op),
+        .init(init), .load(load), .assi(assi), .root_bit(root_bit), .subs(subs),
+        .decrease(decrease), .shift(shift), .done(done)
+    );
 
-
-
-
-
-
-
-    
 endmodule

@@ -2,12 +2,12 @@ module Control_Div(
     input clk,
     input rst,
     input init,
-    input res_eq_1,
-    input i_more_n,
+    input i_eq_zero,
+    input reg_div_min_a,
     output reg load,
     output reg assi,
-    output reg sum,
-    output reg increase,
+    output reg subs,
+    output reg decrease,
     output reg shift,
     output reg done
     );
@@ -15,18 +15,14 @@ module Control_Div(
     parameter START      = 4'b0000; 
     parameter CHECK1     = 4'b0001; 
     parameter LOAD       = 4'b0010; 
-    parameter ASSIGN1    = 4'b0011; 
-    parameter SUM1       = 4'b0100; 
-    parameter CHECK2     = 4'b0101; 
+    parameter SHIFT      = 4'b0011; 
+    parameter CHECK2     = 4'b0100; 
+    parameter ASSIGN1    = 4'b0101; 
     parameter ASSIGN2    = 4'b0110; 
-    parameter SUM2       = 4'b0111; 
-    parameter ASSIGN3    = 4'b1000; 
-    parameter INCREASE_I = 4'b1001; 
-    parameter CHECK3     = 4'b1010; 
-    parameter SHIFT      = 4'b1011; 
-    parameter ASSIGN4    = 4'b1100; 
-    parameter SUM3       = 4'b1101; 
-    parameter FINISH     = 4'b1110; 
+    parameter SUBS       = 4'b0111; 
+    parameter DECREASE   = 4'b1000; 
+    parameter CHECK3     = 4'b1001; 
+    parameter FINISH     = 4'b1010; 
     
     reg [3:0] state;
 
@@ -34,148 +30,112 @@ module Control_Div(
         case (state)
 
             START: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0;                   
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0;                   
             end
 
             CHECK1: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0; 
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0;
             end 
 
             LOAD: begin
-                load   =  1;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0; 
+                load      =  1;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0; 
             end
 
 
-            ASSIGN1: begin
-                load   =  0;
-                assi   =  1;
-                sum    =  1;
-                increase= 0;
-                shift  =  0;
-                done   =  0;  
-            end
-
-            SUM1: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  1;
-                increase= 0;
-                shift  =  0;
-                done   =  0; 
+            SHIFT: begin
+                load      =  0;
+                shift     =  1;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0;  
             end
 
             CHECK2: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0;  
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0; 
+            end
+
+            ASSIGN1: begin
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  1;
+                done      =  0;  
             end
 
             ASSIGN2: begin
-                load   =  0;
-                assi   =  1;
-                sum    =  1;
-                increase= 0;
-                shift  =  0;
-                done   =  0;  
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  1;                
+                done      =  0;  
             end
 
-            SUM2: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  1;
-                increase= 0;
-                shift  =  0;
-                done   =  0;   
+            SUBS: begin
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  1;
+                assi      =  0;
+                done      =  0;    
             end
 
-            ASSIGN3: begin
-                load   =  0;
-                assi   =  1;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0; 
-            end
-
-            INCREASE_I: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 1;
-                shift  =  0;
-                done   =  0;
+            DECREASE: begin
+                load      =  0;
+                shift     =  0;
+                decrease  =  1;
+                subs      =  0;
+                assi      =  0;
+                done      =  0;  
             end
 
             CHECK3: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0;
-            end
-
-            SHIFT: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  1;
-                done   =  0;
-            end
-
-            ASSIGN4: begin
-                load   =  0;
-                assi   =  1;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0;
-            end
-
-            SUM3: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  1;
-                increase= 0;
-                shift  =  0;
-                done   =  0;
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0; 
             end
 
             FINISH: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  1;
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  1; 
             end
-            
+
             default: begin
-                load   =  0;
-                assi   =  0;
-                sum    =  0;
-                increase= 0;
-                shift  =  0;
-                done   =  0;                
+                load      =  0;
+                shift     =  0;
+                decrease  =  0;
+                subs      =  0;
+                assi      =  0;
+                done      =  0;               
             end
         endcase
     end
@@ -199,60 +159,42 @@ module Control_Div(
                 end
 
                 LOAD: begin
-                    state <= SUM1; 
+                    state <= SHIFT; 
                 end
 
                 
-                ASSIGN1: begin
-                    state <= SUM1; 
-                end
-
-                SUM1: begin
-                    state <= CHECK2;
+                SHIFT: begin
+                    state <= CHECK2; 
                 end
 
                 CHECK2: begin
-                    if (res_eq_1)
-                        state <= ASSIGN2;
+                    if (reg_div_min_a)
+                        state <= ASSIGN1;
                     else
-                        state <= ASSIGN3; 
+                        state <= ASSIGN2; 
                 end
 
                 ASSIGN1: begin
-                    state <= SUM2; 
-                end
-              
-                SUM2: begin
-                    state <= INCREASE_I; 
+                     state <= DECREASE;
                 end
 
                 ASSIGN2: begin
-                    state <= INCREASE_I; 
+                    state <= SUBS; 
+                end
+              
+                SUBS: begin
+                    state <= DECREASE; 
                 end
 
-                INCREASE_I: begin
+                DECREASE: begin
                     state <= CHECK3; 
                 end
 
-
                 CHECK3: begin
-                    if (i_more_n)
+                    if (i_eq_zero)
                         state <= FINISH;
                     else
-                        state <= SHIFT;      
-                end
-
-
-                SHIFT: begin
-                    state <= ASSIGN3; 
-                end
-                
-                ASSIGN3: begin
-                    state <= SUM3; 
-                end
-
-                SUM3: begin
-                    state <= CHECK2; 
+                        state <= SHIFT;     
                 end
 
                 FINISH: begin
