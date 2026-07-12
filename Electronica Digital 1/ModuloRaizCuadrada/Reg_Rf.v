@@ -1,8 +1,4 @@
-// Registro de la raiz (Rf).
-//  - load : reinicia Rf a 0
-//  - assi : corre 1 bit a la izquierda E inserta el nuevo bit en un solo paso
-//           (Rf <= {Rf[12:0], value}). Asi "Op = {Rf,01}" siempre usa el Rf
-//           tal como quedo en la iteracion anterior, sin corrimiento previo.
+// Modulo del registro de la raiz (Rf)
 module Reg_Rf (
     input clk,
     input rst,

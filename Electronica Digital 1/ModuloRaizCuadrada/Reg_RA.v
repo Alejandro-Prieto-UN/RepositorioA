@@ -1,7 +1,4 @@
-// Registro combinado Resp:A (32 bits).
-//  - load : carga A en la mitad baja, Resp en 0
-//  - shift: corre 2 bits a la izquierda (se procesan 2 bits de A por iteracion)
-//  - subs : resta el divisor de prueba Op de la mitad alta (Resp)
+//Modulo del registro combinado Resp:A 
 module Reg_RA (
     input clk,
     input rst,

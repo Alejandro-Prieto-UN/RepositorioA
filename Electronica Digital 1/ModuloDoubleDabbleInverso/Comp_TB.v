@@ -5,7 +5,7 @@ module Comp_TB;
     reg [3:0] a;
     wire mayor;
 
-    Comp uut (.a(a), .mayor(mayor));
+    Comp uut(.a(a),.mayor(mayor));
 
     initial begin
         a = 4'd7; 

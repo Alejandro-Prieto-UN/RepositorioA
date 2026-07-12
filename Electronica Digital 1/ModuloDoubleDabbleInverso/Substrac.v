@@ -1,4 +1,4 @@
-// Modulo de la resta (Substrac)
+// Modulo de la resta 
 module Substrac(
     input  [3:0] a,
     output [3:0] S

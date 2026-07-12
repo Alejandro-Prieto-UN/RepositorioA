@@ -1,17 +1,17 @@
-//Modulo de prueba de la raiz cuadrada
+//Modulo de prueba del resgistro de Rf
 `timescale 1ns / 1ps
 `define SIMULATION
 
-module RaizCuadrada_TB;
+module Reg_Rf_TB;
     
     reg clk;
     reg rst;
-    reg [15:0] A;
-    reg init;
+    reg load;
+    reg assi;
+    reg value;
     wire [13:0] Rf;
-    wire done;
 
-    Raiz_Cuadrada uut (.clk(clk),.rst(rst),.A(A),.init(init),.Rf(Rf),.done(done));
+    Reg_Rf uut (.clk(clk),.rst(rst),.load(load),.assi(assi),.value(value),.Rf(Rf));
 
     parameter PERIOD          = 20;
     parameter real DUTY_CYCLE = 0.5;
@@ -27,36 +27,37 @@ module RaizCuadrada_TB;
     end
 
     initial begin 
-        #0 rst = 1; init = 0; A = 16'd0;
+        #0 rst = 1; load = 0; assi = 0; value = 0;
 
         @ (posedge clk);
         @ (negedge clk);
         rst = 0;
         
         @ (negedge clk);
-        A = 16'd144; 
-        init = 1;
+        load = 1; 
         
         @ (posedge clk);
         @ (negedge clk);
-        init = 0;
-        
-        #1500;
+        load = 0;
         
         @ (negedge clk);
-        A = 16'd625; 
-        init = 1;
+        value = 1'b1; 
+        assi = 1;
         
         @ (posedge clk);
         @ (negedge clk);
-        init = 0;
+        value = 1'b0;
         
-        #1500;           
+        @ (posedge clk);
+        @ (negedge clk);
+        assi = 0;
+        
+        #100;           
     end
 
     initial begin: TEST_CASE
-        $dumpfile("RaizCuadrada_TB.vcd");
+        $dumpfile("Reg_Rf_TB.vcd");
         $dumpvars(-1, uut);
-        #(4000) $finish;
+        #(500) $finish;
     end
 endmodule

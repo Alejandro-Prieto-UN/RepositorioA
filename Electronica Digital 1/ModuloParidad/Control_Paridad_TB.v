@@ -1,3 +1,4 @@
+//Modulo de prueba de la maquina de control del algoritmo de paridad
 `timescale 1ns / 1ps
 `define SIMULATION
 
