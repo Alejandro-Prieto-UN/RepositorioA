@@ -9,7 +9,7 @@ module Raiz_Cuadrada (
 );
 
     wire resp_eq_op;
-    wire resp_gt_op;
+    wire resp_more_op;
     wire resp_more_eq_op;
     wire i_eq_zero;
     wire load;
@@ -22,8 +22,8 @@ module Raiz_Cuadrada (
     wire [31:0] RA;
     wire [15:0] Op = {Rf, 2'b01};   
 
-    Comp u_Comp_1(.a(RA[31:16]), .b(Op), .igual(resp_eq_op), .mayor(resp_gt_op));
-    assign resp_more_eq_op = resp_eq_op | resp_gt_op;  
+    Comp u_Comp_1(.a(RA[31:16]), .b(Op), .igual(resp_eq_op), .mayor(resp_more_op));
+    assign resp_more_eq_op = resp_eq_op | resp_more_op;  
 
     Comp u_Comp_2(.a(i), .b(16'd0), .igual(i_eq_zero), .mayor());
 
