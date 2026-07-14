@@ -1,5 +1,5 @@
 $date
-	Mon Jul 13 14:43:55 2026
+	Tue Jul 14 04:08:47 2026
 $end
 $version
 	Icarus Verilog
@@ -46,12 +46,12 @@ $var wire 1 , i_eq_zero $end
 $var wire 1 # init $end
 $var wire 1 $ resp_more_eq_op $end
 $var wire 1 % rst $end
-$var parameter 4 9 ASSIGN1 $end
-$var parameter 4 : ASSIGN2 $end
-$var parameter 4 ; ASSIGN3 $end
-$var parameter 4 < CHECK1 $end
-$var parameter 4 = CHECK2 $end
-$var parameter 4 > CHECK3 $end
+$var parameter 4 9 ASSIGN2 $end
+$var parameter 4 : ASSIGN3 $end
+$var parameter 4 ; CHECK1 $end
+$var parameter 4 < CHECK2 $end
+$var parameter 4 = CHECK3 $end
+$var parameter 4 > CONCATENATE $end
 $var parameter 4 ? DECREASE $end
 $var parameter 4 @ FINISH $end
 $var parameter 4 A LOAD $end
@@ -102,12 +102,12 @@ b11 B
 b10 A
 b1011 @
 b1001 ?
-b1010 >
-b101 =
-b1 <
-b1000 ;
-b110 :
-b100 9
+b100 >
+b1010 =
+b101 <
+b1 ;
+b1000 :
+b110 9
 $end
 #0
 $dumpvars
