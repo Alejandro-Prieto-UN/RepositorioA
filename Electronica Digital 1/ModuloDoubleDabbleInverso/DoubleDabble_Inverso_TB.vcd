@@ -1,0 +1,632 @@
+$date
+	Tue Jul 14 04:18:30 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module DoubleDabble_Inverso_TB $end
+$scope module uut $end
+$var wire 4 ! a1 [3:0] $end
+$var wire 4 " a2 [3:0] $end
+$var wire 4 # a3 [3:0] $end
+$var wire 1 $ clk $end
+$var wire 1 % init $end
+$var wire 1 & rst $end
+$var wire 1 ' subs $end
+$var wire 1 ( shift $end
+$var wire 1 ) m_a3 $end
+$var wire 1 * m_a2 $end
+$var wire 1 + m_a1 $end
+$var wire 1 , load $end
+$var wire 1 - increase $end
+$var wire 1 . i_eq_n $end
+$var wire 1 / done $end
+$var wire 12 0 bcd_sub [11:0] $end
+$var wire 12 1 bcd_reg [11:0] $end
+$var wire 10 2 A [9:0] $end
+$scope module u_Comp_a1 $end
+$var wire 4 3 a [3:0] $end
+$var wire 1 + mayor $end
+$upscope $end
+$scope module u_Comp_a2 $end
+$var wire 4 4 a [3:0] $end
+$var wire 1 * mayor $end
+$upscope $end
+$scope module u_Comp_a3 $end
+$var wire 4 5 a [3:0] $end
+$var wire 1 ) mayor $end
+$upscope $end
+$scope module u_Control $end
+$var wire 1 $ clk $end
+$var wire 1 % init $end
+$var wire 1 & rst $end
+$var wire 1 . i_eq_n $end
+$var parameter 3 6 CHECK1 $end
+$var parameter 3 7 CHECK2 $end
+$var parameter 3 8 FINISH $end
+$var parameter 3 9 INCREASE $end
+$var parameter 3 : LOAD $end
+$var parameter 3 ; SHIFT $end
+$var parameter 3 < START $end
+$var parameter 3 = SUBS $end
+$var reg 1 / done $end
+$var reg 1 - increase $end
+$var reg 1 , load $end
+$var reg 1 ( shift $end
+$var reg 3 > state [2:0] $end
+$var reg 1 ' subs $end
+$upscope $end
+$scope module u_Increase $end
+$var wire 1 $ clk $end
+$var wire 1 - increase $end
+$var wire 1 , load $end
+$var wire 1 . i_eq_n $end
+$var reg 5 ? i [4:0] $end
+$upscope $end
+$scope module u_Shift $end
+$var wire 4 @ a1 [3:0] $end
+$var wire 4 A a2 [3:0] $end
+$var wire 4 B a3 [3:0] $end
+$var wire 1 $ clk $end
+$var wire 12 C in_bcd [11:0] $end
+$var wire 1 , load $end
+$var wire 1 ( shift $end
+$var wire 1 ' subs $end
+$var wire 3 D update [2:0] $end
+$var wire 12 E arr_corr [11:0] $end
+$var wire 10 F A [9:0] $end
+$var reg 22 G alldata [21:0] $end
+$upscope $end
+$scope module u_Sub_a1 $end
+$var wire 4 H a [3:0] $end
+$var wire 4 I S [3:0] $end
+$upscope $end
+$scope module u_Sub_a2 $end
+$var wire 4 J a [3:0] $end
+$var wire 4 K S [3:0] $end
+$upscope $end
+$scope module u_Sub_a3 $end
+$var wire 4 L a [3:0] $end
+$var wire 4 M S [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b110 =
+b0 <
+b11 ;
+b10 :
+b100 9
+b111 8
+b101 7
+b1 6
+$end
+#0
+$dumpvars
+bx M
+bx L
+bx K
+bx J
+bx I
+bx H
+bx G
+bx F
+bx E
+bx D
+bx C
+b10 B
+b101 A
+b101 @
+bx ?
+bx >
+bx 5
+bx 4
+bx 3
+bx 2
+bx 1
+bx 0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+1&
+0%
+0$
+b10 #
+b101 "
+b101 !
+$end
+#10000
+0/
+0-
+0'
+0(
+0,
+b0 >
+1$
+#20000
+0$
+#30000
+1$
+#40000
+0&
+0$
+#50000
+b1 >
+1$
+#60000
+0$
+#70000
+1%
+1$
+#80000
+0$
+#90000
+1,
+b10 >
+1$
+#100000
+0$
+#110000
+b1111 M
+b10 L
+b10 K
+b101 J
+b111100100010 0
+b111100100010 C
+b10 I
+b101 H
+0)
+b10 5
+0*
+b101 4
+b0 D
+0+
+b101 3
+1(
+0,
+b0 2
+b0 F
+b1001010101 1
+b1001010101 E
+b11 >
+0.
+b0 ?
+b10010101010000000000 G
+0%
+1$
+#120000
+0$
+#130000
+b1110 M
+b1 L
+b1111 K
+b10 J
+b111011110111 0
+b111011110111 C
+b111 I
+b1010 H
+b1 5
+b10 4
+b1 D
+1+
+b1010 3
+b100101010 1
+b100101010 E
+b1000000000 2
+b1000000000 F
+1-
+0(
+b1001010101000000000 G
+b100 >
+1$
+#140000
+0$
+#150000
+0-
+b101 >
+b1 ?
+1$
+#160000
+0$
+#170000
+1'
+b110 >
+1$
+#180000
+0$
+#190000
+b111011110100 0
+b111011110100 C
+b100 I
+b111 H
+b0 D
+0+
+b111 3
+0'
+1(
+b100100111 1
+b100100111 E
+b11 >
+b1001001111000000000 G
+1$
+#200000
+0$
+#210000
+b1101 M
+b0 L
+b110 K
+b1001 J
+b110101100000 0
+b110101100000 C
+b0 I
+b11 H
+b0 5
+b10 D
+1*
+b1001 4
+b11 3
+b10010011 1
+b10010011 E
+b1100000000 2
+b1100000000 F
+1-
+0(
+b100100111100000000 G
+b100 >
+1$
+#220000
+0$
+#230000
+0-
+b101 >
+b10 ?
+1$
+#240000
+0$
+#250000
+1'
+b110 >
+1$
+#260000
+0$
+#270000
+b110100110000 0
+b110100110000 C
+b11 K
+b110 J
+b0 D
+0*
+b110 4
+0'
+1(
+b1100011 1
+b1100011 E
+b11 >
+b11000111100000000 G
+1$
+#280000
+0$
+#290000
+b0 K
+b11 J
+b110100001110 0
+b110100001110 C
+b1110 I
+b1 H
+b11 4
+b1 3
+b110001 1
+b110001 E
+b1110000000 2
+b1110000000 F
+1-
+0(
+b1100011110000000 G
+b100 >
+1$
+#300000
+0$
+#310000
+0-
+b101 >
+b11 ?
+1$
+#320000
+0$
+#330000
+1'
+b110 >
+1$
+#340000
+0$
+#350000
+0'
+1(
+b11 >
+1$
+#360000
+0$
+#370000
+b1110 K
+b1 J
+b110111100101 0
+b110111100101 C
+b101 I
+b1000 H
+b1 4
+b1 D
+1+
+b1000 3
+b11000 1
+b11000 E
+b1111000000 2
+b1111000000 F
+1-
+0(
+b110001111000000 G
+b100 >
+1$
+#380000
+0$
+#390000
+0-
+b101 >
+b100 ?
+1$
+#400000
+0$
+#410000
+1'
+b110 >
+1$
+#420000
+0$
+#430000
+b110111100010 0
+b110111100010 C
+b10 I
+b101 H
+b0 D
+0+
+b101 3
+0'
+1(
+b10101 1
+b10101 E
+b11 >
+b101011111000000 G
+1$
+#440000
+0$
+#450000
+b1101 K
+b0 J
+b110111010111 0
+b110111010111 C
+b111 I
+b1010 H
+b0 4
+b1 D
+1+
+b1010 3
+b1010 1
+b1010 E
+b1111100000 2
+b1111100000 F
+1-
+0(
+b10101111100000 G
+b100 >
+1$
+#460000
+0$
+#470000
+0-
+b101 >
+b101 ?
+1$
+#480000
+0$
+#490000
+1'
+b110 >
+1$
+#500000
+0$
+#510000
+b110111010100 0
+b110111010100 C
+b100 I
+b111 H
+b0 D
+0+
+b111 3
+0'
+1(
+b111 1
+b111 E
+b11 >
+b1111111100000 G
+1$
+#520000
+0$
+#530000
+b110111010000 0
+b110111010000 C
+b0 I
+b11 H
+b11 3
+b11 1
+b11 E
+b1111110000 2
+b1111110000 F
+1-
+0(
+b111111110000 G
+b100 >
+1$
+#540000
+0$
+#550000
+0-
+b101 >
+b110 ?
+1$
+#560000
+0$
+#570000
+1'
+b110 >
+1$
+#580000
+0$
+#590000
+0'
+1(
+b11 >
+1$
+#600000
+0$
+#610000
+b110111011110 0
+b110111011110 C
+b1110 I
+b1 H
+b1 3
+b1 1
+b1 E
+b1111111000 2
+b1111111000 F
+1-
+0(
+b11111111000 G
+b100 >
+1$
+#620000
+0$
+#630000
+0-
+b101 >
+b111 ?
+1$
+#640000
+0$
+#650000
+1'
+b110 >
+1$
+#660000
+0$
+#670000
+0'
+1(
+b11 >
+1$
+#680000
+0$
+#690000
+b110111011101 0
+b110111011101 C
+b1101 I
+b0 H
+b0 3
+b0 1
+b0 E
+b1111111100 2
+b1111111100 F
+1-
+0(
+b1111111100 G
+b100 >
+1$
+#700000
+0$
+#710000
+0-
+b101 >
+b1000 ?
+1$
+#720000
+0$
+#730000
+1'
+b110 >
+1$
+#740000
+0$
+#750000
+0'
+1(
+b11 >
+1$
+#760000
+0$
+#770000
+b111111110 2
+b111111110 F
+1-
+0(
+b111111110 G
+b100 >
+1$
+#780000
+0$
+#790000
+0-
+b101 >
+b1001 ?
+1$
+#800000
+0$
+#810000
+1'
+b110 >
+1$
+#820000
+0$
+#830000
+0'
+1(
+b11 >
+1$
+#840000
+0$
+#850000
+b11111111 2
+b11111111 F
+1-
+0(
+b11111111 G
+b100 >
+1$
+#860000
+0$
+#870000
+0-
+b101 >
+1.
+b1010 ?
+1$
+#880000
+0$
+#890000
+1/
+b111 >
+1$
+#900000
+0$
+#910000
+0/
+b0 >
+1$

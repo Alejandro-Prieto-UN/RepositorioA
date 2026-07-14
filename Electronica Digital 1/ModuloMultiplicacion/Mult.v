@@ -20,7 +20,7 @@ module Mult (
 
 
 
-    Shift_Left u_Shift_Left (.clk(clk),.load(load),.B(B),.shift(shift),.B_corr(B_corr));
+    Shift u_Shift (.clk(clk),.load(load),.B(B),.shift(shift),.B_corr(B_corr));
 
     Sum u_Sum (.clk(clk),.load (load),.sum(sum),.B(B_corr),.S(S));
 
@@ -31,7 +31,7 @@ module Mult (
     Multiplex u_Multiplex (.i(Inc),.A(A),.A_i(a_eq_1));
 
     
-    Comp_Eq u_Comp_Eq (.i(Inc),.i_eq_n(i_eq_n));
+    Comp u_Comp (.i(Inc),.i_eq_n(i_eq_n));
 
    
     Control_Mult u_Control_Mult (.clk(clk),.rst(rst),.a_eq_1(a_eq_1),.i_eq_n(i_eq_n),.init(init)
