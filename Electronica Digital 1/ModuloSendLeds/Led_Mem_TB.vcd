@@ -1,0 +1,40 @@
+$date
+	Wed Jul 15 14:52:52 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Led_Mem_tb $end
+$scope module uut $end
+$var wire 16 ! addr [15:0] $end
+$var reg 24 " RGB [23:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b111111110000000000000000 "
+b0 !
+$end
+#10000
+b1111111100000000 "
+b1 !
+#20000
+b11111111 "
+b10 !
+#30000
+b111111111111111100000000 "
+b11 !
+#40000
+b111111110000000011111111 "
+b100 !
+#50000
+b0 "
+b101 !
+#80000
