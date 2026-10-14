@@ -6,7 +6,7 @@ ICE40_SIM_CELLS=./lattice_sim/cells_sim_ecp5.v
 #$(filter-out %_TB.v, $(wildcard *.v))
 
 sim:
-	rm -f a.out *.vcd
+	del /f /q a.out *.vcd
 	iverilog  -DBENCH $(TARGET)_TB.v $(OBJS)
 	vvp a.out
 	gtkwave $(TARGET)_TB.vcd
